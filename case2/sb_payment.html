@@ -19,12 +19,18 @@
    <title>Spice Bowl Payment Form</title>
    <link href="sb_reset.css" rel="stylesheet" />
    <link href="sb_styles.css" rel="stylesheet" />
+   <link href="sb_forms.css" rel="stylesheet"/>
+   <link href="sb_validate.css" rel="stylesheet"/>
+   <script src="sb_script.js"></script>
 </head>
 
 <body>
    <header>
       <img src="sb_logo.png" alt="The Spice Bowl" />
-
+      <form action="https://example.com/sb/login" method="POST" id="login">
+      <input type="text" id="userBox" placeholder="Username">
+      <input type="text" id="pwdBox" placeholder="password">
+      </form>
       <nav> <a id="navicon" href="#"><img src="sb_navicon.png" alt="" /></a>
          <ul>
             <li><a href="#">Spices</a></li>
@@ -38,7 +44,7 @@
    
    <section>
       <h1>Payment Form</h1>
-      <form id="payment" action="http://www.example.com/sb/payment" method="post">
+      <form id="payment" action="http://www.example.com/sb/payment" method="POST">
 			<fieldset id="billing">
 			<legend>Billing Information (required)</legend>
 				<label for="firstBox">First Name</label>
@@ -123,35 +129,40 @@
 				
 			</fieldset>
 			
-			<fieldset id="creditCard" >
+			<fieldset  >
 			<legend>Credit Card (required)</legend>
 			
 			
 				<fieldset class="cardLabel" >
 					
-					<label for="amex1"><img src="sb_amex.png" /></label>
-					<input name="cCard" id="amex1" value="amex" type="radio" required />
+				<label class="cardLabel">
+                    <img src="sb_amex.png" />
+                    <input name="cCard"  value="amex" type="radio" required />
+                 </label>
 					
-					<label for="discover1"><img src="sb_discover.png" /></label>
-					<input name="cCard" id="discover1" value="discover" type="radio" />
+				<label class="cardLabel">
+                    <img src="sb_discover.png" />
+                    <input name="cCard"  value="discover" type="radio" />
+                </label>
 					
-					<label for="master1"><img src="sb_master.png" /></label>
-					<input name="cCard" id="master1" value="master" type="radio" />
+				<label class="cardLabel">
+                    <img src="sb_master.png" />
+                    <input name="cCard"  value="master" type="radio" />
+                </label>
 					
-					<label for="visa1"><img src="sb_visa.png" /></label>
-					<input name="cCard" id="visa1" value="visa" type="radio" />
+				<label class="cardLabel">
+                    <img src="sb_visa.png" />
+                    <input name="cCard"  value="visa" type="radio" />
+                </label>
 				</fieldset>
 				
 			
 				
 				
-			</fieldset>
+			
 			
 			<label for="cardBox">Credit Card Number</label>
-			<input name="cardNumber" id="cardBox" type="text" pattern="^
-			(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])
-			[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131
-			|1800|35\d{3})\d{11})$" required />
+			<input name="cardNumber" id="cardBox" type="text" required />
 			
 			<label for="monthList">Expiration Date</label>
 			<select name="cardMonth" id="monthList" required >
@@ -179,7 +190,9 @@
 			</select>
 			<label for="cscBox">CSC</label>
 			<input name="csc" id="cscBox" pattern="^\d{3}$" maxlength="3" placeholder="nnn" required />
-			<button type="submit"><img src="sb_button.png" alt="next" /></button>
+            
+        </fieldset>
+        <button type="submit"><img src="sb_button.png" alt="next" /></button>
 		</form>
       
       <aside>
